@@ -60,5 +60,5 @@ class CoursePrices:
         if (self.guidance_price * self.guidance_cost != self.guidance_hours): 
             raise Exception('CoursePrices hours to cost multiplication is not correct.')
         
-        if (self.guidance_cost + self.guidance_cost + self.guidance_cost + self.guidance_cost != self.guidance_cost):
+        if (self.lectures_cost + self.structure_cost + self.guidance_cost + self.tests_cost != self.total_cost):
             raise Exception('CoursePrices services summ is not equal to total price.')
