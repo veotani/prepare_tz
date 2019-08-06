@@ -36,6 +36,8 @@ class CoursePrices:
 
         self.total_cost = total_cost
 
+        self.testModel()
+
     def testModel(self):
         """
         Check if prices are correct and initialized.
