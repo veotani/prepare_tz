@@ -1,2 +1,12 @@
 .ipynb_checkpoints/Untitled-checkpoint.ipynb
 *.ipynb
+common.xlsx
+Копия Распределение авторских 2019_рабочая.xlsx
+ТЗ Контракт_44 ФЗ_Алейников.docx
+08. ТИПОВОЙ ДГПХ 44-ФЗ преподаватели - 12.05.2019 (1).docx
+.vscode/.ropeproject/objectdb
+counters/__pycache__/SimpleCounter.cpython-37.pyc
+parsers/__pycache__/ExcelPricesParser.cpython-37.pyc
+models/__pycache__/CourseInfo.cpython-37.pyc
+models/__pycache__/CoursePrices.cpython-37.pyc
+.vscode/.ropeproject/config.py
