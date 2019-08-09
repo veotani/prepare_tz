@@ -52,13 +52,23 @@ class CoursePrices:
             raise Exception('All CoursePrices values must be initialized.')
 
         if (self.lectures_price * self.lectures_hours != self.lectures_cost): 
-            raise Exception('CoursePrices hours to cost multiplication is not correct.')
-        if (self.structure_price * self.structure_cost != self.structure_hours): 
-            raise Exception('CoursePrices hours to cost multiplication is not correct.')
-        if (self.tests_price * self.tests_cost != self.tests_hours): 
-            raise Exception('CoursePrices hours to cost multiplication is not correct.')
-        if (self.guidance_price * self.guidance_cost != self.guidance_hours): 
-            raise Exception('CoursePrices hours to cost multiplication is not correct.')
+            raise Exception('Lecture hours to cost multiplication is not correct.')
+        if (self.structure_price * self.structure_hours != self.structure_cost): 
+            raise Exception('Structure hours to cost multiplication is not correct.')
+        if (self.tests_price * self.tests_hours != self.tests_cost): 
+            raise Exception('Tests hours to cost multiplication is not correct.')
+        if (self.guidance_price * self.guidance_hours != self.guidance_cost): 
+            raise Exception('Guidance hours to cost multiplication is not correct.')
         
         if (self.lectures_cost + self.structure_cost + self.guidance_cost + self.tests_cost != self.total_cost):
             raise Exception('CoursePrices services summ is not equal to total price.')
+
+    def __str__(self):
+        representation = f'{self.author_name}\n' + \
+            f'{self.course_name}\n' + \
+            f'{self.lectures_price}\t{self.lectures_hours}\t{self.lectures_cost}\n' + \
+            f'{self.structure_price}\t{self.structure_cost}\t{self.structure_hours}\n' + \
+            f'{self.tests_price}\t{self.tests_cost}\t{self.tests_hours}\n' + \
+            f'{self.guidance_price}\t{self.guidance_cost}\t{self.guidance_hours}\n' + \
+            f'\t\t{self.total_cost}'
+        return representation
