@@ -67,8 +67,8 @@ class CoursePrices:
         representation = f'{self.author_name}\n' + \
             f'{self.course_name}\n' + \
             f'{self.lectures_price}\t{self.lectures_hours}\t{self.lectures_cost}\n' + \
-            f'{self.structure_price}\t{self.structure_cost}\t{self.structure_hours}\n' + \
-            f'{self.tests_price}\t{self.tests_cost}\t{self.tests_hours}\n' + \
-            f'{self.guidance_price}\t{self.guidance_cost}\t{self.guidance_hours}\n' + \
-            f'\t\t{self.total_cost}'
+            f'{self.structure_price}\t{self.structure_hours}\t{self.structure_cost}\n' + \
+            f'{self.guidance_price}\t{self.guidance_hours}\t{self.guidance_cost}\n' + \
+            f'{self.tests_price}\t{self.tests_hours}\t{self.tests_cost}\n' + \
+            f' \t \t{self.total_cost}'
         return representation
