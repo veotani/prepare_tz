@@ -22,7 +22,7 @@ class SimpleCounter:
         guidance_price  = Decimal('100')
         tests_hours     = Decimal('0')
 
-        for i in range(1, 50):
+        for i in range(1, 51):
             if int(tests_cost * 100) % i == 0:
                 tests_hours = i
         
