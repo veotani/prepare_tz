@@ -9,7 +9,7 @@ class SimpleCounter:
     def __init__(self):
         pass
 
-    def get_course_model(self, course_info):
+    def count(self, course_info):
         rounded_cost = Decimal(str(round(course_info.cost, 2)))
 
         lectures_cost  = 80 * (rounded_cost // 100)
