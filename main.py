@@ -3,7 +3,7 @@ from counters.SimpleCounter import SimpleCounter
 
 def main():
     # TODO: Leave parameters for arguments.
-    parser = ExcelPricesParser("common.xlsx", 2, 1, 4)
+    parser = ExcelPricesParser("xls_input/common.xlsx", 2, 1, 6)
     parse_results = parser.parse()
 
     counter = SimpleCounter()
