@@ -9,7 +9,7 @@ def main():
     counter = SimpleCounter()
 
     for parse_result in parse_results:
-        print(counter.get_course_model(parse_result))
+        print(counter.count(parse_result))
 
 if __name__ == "__main__":
     main()
