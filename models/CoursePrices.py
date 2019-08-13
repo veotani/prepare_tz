@@ -49,7 +49,7 @@ class CoursePrices:
             self.guidance_price and self.guidance_cost and self.guidance_hours and
             self.total_cost
         ):
-            raise Exception('All CoursePrices values must be initialized.')
+            raise Exception(f'All CoursePrices values must be initialized. My table is\n{self.__str__()}')
 
         if (self.lectures_price * self.lectures_hours != self.lectures_cost): 
             raise Exception('Lecture hours to cost multiplication is not correct.')
