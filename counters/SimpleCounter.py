@@ -10,12 +10,12 @@ class SimpleCounter:
         pass
 
     def count(self, course_info):
-        rounded_cost = Decimal(str(round(course_info.cost, 2)))
+        rounded_reward = Decimal(str(round(course_info.reward, 2)))
 
-        lectures_cost  = 80 * (rounded_cost // 100)
-        structure_cost = 5 *  (rounded_cost // 100)
-        guidance_cost  = 5 *  (rounded_cost // 100)
-        tests_cost     = rounded_cost - (lectures_cost + structure_cost + guidance_cost)
+        lectures_cost  = 80 * (rounded_reward // 100)
+        structure_cost = 5 *  (rounded_reward // 100)
+        guidance_cost  = 5 *  (rounded_reward // 100)
+        tests_cost     = rounded_reward - (lectures_cost + structure_cost + guidance_cost)
 
         lectures_price  = Decimal('800')
         structure_price = Decimal('100')
@@ -39,7 +39,7 @@ class SimpleCounter:
             structure_price, structure_cost, structure_hours, 
             tests_price, tests_cost, tests_hours,
             guidance_price, guidance_cost, guidance_hours,
-            rounded_cost,
+            rounded_reward,
             course_info.author_name, course_info.course_name
         )
 
