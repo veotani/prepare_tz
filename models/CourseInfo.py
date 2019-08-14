@@ -23,7 +23,9 @@ class CourseInfo:
         telephone_number,
         reward,
         insurance,
-        birthdate
+        birthdate,
+        job_name,
+        bank_name
     ):
         # Convert dates
         if type(passport_created_date) == float or type(passport_created_date) == int:
@@ -36,6 +38,9 @@ class CourseInfo:
             
         self.address_by_pasport = address_by_pasport
         self.telephone_number = telephone_number
+
+        self.job_name = job_name
+        self.bank_name = bank_name
 
         self.course_name = course_name
         self.author_name = author_name  
