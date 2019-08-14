@@ -22,7 +22,9 @@ class ExcelPricesParser:
         bank_requisites_col,
         degree_col,
         address_by_pasport_col,
-        telephone_number_col
+        telephone_number_col,
+        bank_name_col,
+        job_name_col
     ):
         self.filename = filename
         self.author_name_col = author_name_col
@@ -42,6 +44,8 @@ class ExcelPricesParser:
         self.address_by_pasport_col = address_by_pasport_col
         self.telephone_number_col = telephone_number_col
         self.reward_col = reward_col
+        self.bank_name_col = bank_name_col
+        self.job_name_col = job_name_col
 
     def parse(self):
         bad_rows = []
@@ -82,6 +86,8 @@ class ExcelPricesParser:
             degree = sheet.row(i)[self.degree_col].value
             address_by_pasport = sheet.row(i)[self.address_by_pasport_col].value
             telephone_number = sheet.row(i)[self.telephone_number_col].value
+            bank_name = sheet.row(i)[self.bank_name_col].value
+            job_name = sheet.row(i)[self.job_name_col].value
 
             reward = float(sheet.row(i)[self.reward_col].value)
             try:
@@ -117,7 +123,11 @@ class ExcelPricesParser:
                 else:
                     print(f'{author_name}, {course_name} - name is incorrect.')
                     continue
-            
+            if type(ITN) == float:
+                ITN = int(str(ITN).split('.')[0])
+            if type(INILA) == float:
+                INILA = int(str(INILA).split('.')[0])
+
             course_info = CourseInfo(
                 course_name = course_name, 
                 author_name = author_name, 
@@ -135,7 +145,9 @@ class ExcelPricesParser:
                 telephone_number = telephone_number,
                 reward = reward,
                 insurance = insurance,
-                birthdate = birthdate                
+                birthdate = birthdate,
+                bank_name = bank_name,
+                job_name = job_name               
             )
 
             if len(author_name) == 0  or not (Decimal(str(round(float(cost), 2))) > 0):
