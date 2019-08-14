@@ -17,11 +17,13 @@ def main():
         ITN_col = 15,
         INILA_col = 17,
         tax_start_date_col = 16,
-        position_col = 18,
-        bank_requisites_col = 19,
-        degree_col = 21,
+        position_col = 19,
+        bank_requisites_col = 20,
+        degree_col = 22,
         address_by_pasport_col = 13,
-        telephone_number_col = 14
+        telephone_number_col = 14,
+        bank_name_col = 21,
+        job_name_col = 18
     )
     parse_results = parser.parse()
     counter = SimpleCounter()
