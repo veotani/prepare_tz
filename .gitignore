@@ -1,4 +1,3 @@
-.ipynb_checkpoints/Untitled-checkpoint.ipynb
 *.ipynb
 common.xlsx
 Копия Распределение авторских 2019_рабочая.xlsx
@@ -10,3 +9,9 @@ parsers/__pycache__/ExcelPricesParser.cpython-37.pyc
 models/__pycache__/CourseInfo.cpython-37.pyc
 models/__pycache__/CoursePrices.cpython-37.pyc
 .vscode/.ropeproject/config.py
+results/*
+*.xlsx
+*.txt
+*/__pycache__
+*.docx
+*.zip
