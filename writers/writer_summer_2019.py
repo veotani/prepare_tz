@@ -1,5 +1,6 @@
 from docx import Document
 from os import listdir
+from docx.shared import Pt
 
 PATTERN_FILENAME = 'pattern/pattern_summer_2019.docx'
 
@@ -27,6 +28,8 @@ def replace(source, course_info, prices_info):
 		source = source.replace('PASPORT_SERIES_NUMBER', str(course_info.passport_seria_number))
 		source = source.replace('PASPORT_CREATED_LOCATION', str(course_info.passport_created_location))
 		source = source.replace('PASPORT_CREATED_DATE', str(course_info.passport_created_date))
+		source = source.replace('BANK_NAME', str(course_info.bank_name))
+		source = source.replace('JOB_NAME', str(course_info.job_name))
 		source = source.replace('ITN_10', str(course_info.itn_10))
 		source = source.replace('ITN_11', str(course_info.itn_11))
 		source = source.replace('ITN_12', str(course_info.itn_12))
@@ -73,9 +76,12 @@ def replace(source, course_info, prices_info):
 		return source
 		
 def write_data_to_file(course_info, prices_info):
+
 		document = Document(PATTERN_FILENAME)
 		for p in document.paragraphs:
-			p.text = replace(p.text, course_info, prices_info)
+			p.text = replace(p.text, course_info, prices_info)			
+			p.style.font.name = 'Times New Roman'
+			p.style.font.size = Pt(11)
 
 		for t in document.tables:
 			for row_number in range(len(t.column_cells(0))):
@@ -83,6 +89,6 @@ def write_data_to_file(course_info, prices_info):
 					cell.text = replace(cell.text, course_info, prices_info)
 
 		file_name = course_info.author_second_name + '.docx'
-		if file_name in listdir('results/'):
+		while file_name in listdir('results/'):
 			file_name = file_name.split('.')[0] + '1' + '.docx'
 		document.save('results/' + file_name)
