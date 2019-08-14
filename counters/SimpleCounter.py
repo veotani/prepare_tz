@@ -21,17 +21,20 @@ class SimpleCounter:
         structure_price = Decimal('100')
         guidance_price  = Decimal('100')
         tests_hours     = Decimal('0')
-
-        for i in range(1, 51):
-            if int(tests_cost * 100) % i == 0:
-                tests_hours = i
-        
-        if tests_hours == 0:
-            raise Exception(f'There is no divisor for tests cost. Cost is {tests_cost}.')
         
         lectures_hours  = lectures_cost / lectures_price
         structure_hours = structure_cost / structure_price
         guidance_hours  = guidance_cost / guidance_price
+
+        for i in range(1, int(max([lectures_hours, structure_hours, guidance_hours, 2]))):
+            if int(tests_cost * 100) % i == 0:
+                tests_hours = i
+        
+        if tests_hours == 0:
+            error_expression = int(tests_cost * 100) % 1 
+            print('Res: ' + str(error_expression))
+            raise Exception(f'There is no divisor for tests cost. Cost is {tests_cost}.')
+
         tests_price     = tests_cost / tests_hours
 
         course_prices = CoursePrices(
