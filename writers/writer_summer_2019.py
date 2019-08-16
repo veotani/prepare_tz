@@ -5,6 +5,7 @@ from docx.shared import Pt
 PATTERN_FILENAME = 'pattern/pattern_summer_2019.docx'
 
 def replace(source, course_info, prices_info):
+		source = source.replace('COURSE_NAME', str(course_info.course_name))
 		source = source.replace('AUTHORNAME', str(course_info.author_name))
 		source = source.replace('AUTHOR_NAME', str(course_info.author_name))
 		source = source.replace('CONTRACT_PRICE_RUB_IN_WORDS', str(course_info.contract_price_rub_in_words))
@@ -88,7 +89,12 @@ def write_data_to_file(course_info, prices_info):
 				for cell in t.row_cells(row_number):
 					cell.text = replace(cell.text, course_info, prices_info)
 
-		file_name = course_info.author_second_name + '.docx'
-		while file_name in listdir('results/'):
-			file_name = file_name.split('.')[0] + '1' + '.docx'
-		document.save('results/' + file_name)
+		file_name = course_info.author_second_name + ' - ' \
+			+ course_info.course_name + '.docx'
+		if len(course_info.passport_seria_number) > 5:
+			folder_name = 'results/'
+		else:
+			folder_name = 'no-passport/'
+		while file_name in listdir(folder_name):
+			file_name = file_name.replace('.docx', '1.docx')
+		document.save(folder_name + file_name)
